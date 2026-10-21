@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.cache/tsconfig.worker.tsbuildinfo",
+    "target": "ES2023",
+    "lib": ["ES2023"],
+    "strict": true,
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "types": ["@cloudflare/workers-types"]
+  },
+  "include": ["src/worker.ts", "src/server/**/*.ts", "src/shared/**/*.ts"]
+}
+

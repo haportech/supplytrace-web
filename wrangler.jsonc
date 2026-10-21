@@ -1,0 +1,41 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "supplytrace",
+  "main": "src/worker.ts",
+  "compatibility_date": "2026-08-06",
+  "assets": {
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "supplytrace-db",
+      "database_id": "3c4e298c-6a7e-42e2-89c6-321839311b72",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "queues": {
+    "producers": [
+      {
+        "binding": "SCAN_QUEUE",
+        "queue": "supplytrace-scans"
+      }
+    ],
+    "consumers": [
+      {
+        "queue": "supplytrace-scans",
+        "max_batch_size": 5,
+        "max_batch_timeout": 2,
+        "max_retries": 3
+      }
+    ]
+  },
+  "vars": {
+    "APP_VERSION": "0.1.0",
+    "SCAN_LIMIT_DAILY": "20",
+    "SCAN_LIMIT_HOURLY": "3",
+    "SCAN_CACHE_HOURS": "6",
+    "SCAN_RETENTION_DAYS": "30"
+  }
+}

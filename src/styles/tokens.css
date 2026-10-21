@@ -1,0 +1,49 @@
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/bricolage-grotesque-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Newsreader';
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url('/fonts/newsreader-latin.woff2') format('woff2');
+}
+
+:root {
+  color-scheme: light;
+  --color-bg: #f4f2ed;
+  --color-surface: #fcfbf8;
+  --color-surface-raised: #ffffff;
+  --color-surface-muted: #ecebe5;
+  --color-line: #d6d8cf;
+  --color-line-strong: #a0a69a;
+  --color-text: #242723;
+  --color-text-muted: #596057;
+  --color-primary: #9e4933;
+  --color-primary-ink: #ffffff;
+  --color-warning: #86590b;
+  --color-danger: #ad3434;
+  --color-info: #286382;
+  --font-body: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-display: 'Newsreader', Georgia, serif;
+  --color-glass: rgb(255 255 255 / 72%);
+  --font-code: 'Fira Code', ui-monospace, monospace;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --radius-sm: 0.65rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.75rem;
+  --shadow-panel: 0 18px 60px rgb(47 52 40 / 10%), inset 0 1px 0 rgb(255 255 255 / 92%);
+  --transition-fast: 180ms ease-out;
+  --transition-base: 280ms cubic-bezier(.22, 1, .36, 1);
+}

@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install packages
+        run: npm ci
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Check types
+        run: npm run typecheck
+
+      - name: Check code style
+        run: npm run lint
+
+      - name: Run unit and Worker tests
+        run: npm test
+
+      - name: Build the app
+        run: npm run build
+
+      - name: Check packages
+        run: npm audit --audit-level=high
+
+      - name: Run browser tests
+        run: npm run test:e2e

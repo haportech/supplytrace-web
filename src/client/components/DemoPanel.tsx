@@ -18,7 +18,7 @@ export function DemoPanel() {
         </a>
         <a
           className="demo-secondary-link"
-          href="https://github.com/haportech/supplytrace"
+          href="https://github.com/haportech/supplytrace-web"
         >
           Run it on your computer
         </a>
